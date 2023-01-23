@@ -1,0 +1,26 @@
+{% extends "shop/base.html" %} {% block content %}
+<h1>您的訂單已成功</h1>
+
+<div class="card" style="width: 20rem">
+  <div class="card-header">訂單編號#{{order}}</div>
+  <div class="card-body">
+    <ul class="list-group list-group-flush">
+      <li class="list-group list-group-flush">收貨人:{{order.name}}</li>
+      <li class="list-group list-group-flush">信箱:{{order.email}}</li>
+      <li class="list-group list-group-flush">地址:{{order.address}}</li>
+      <li class="list-group list-group-flush">
+        訂單建立時間:{{order.created}}
+      </li>
+      <li class="list-group list-group-flush">
+        訂單更新時間:{{order.updated}}
+      </li>
+    </ul>
+
+    <p>總額: ${{ order.get_total_cost }}</p>
+  </div>
+</div>
+
+<button type="submit" class="btn btn-success btn-product" id="btn">
+  <span class="glyphicon glyphicon-shopping-cart"></span> 確定
+</button>
+{% endblock %}
